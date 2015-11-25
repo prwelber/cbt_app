@@ -40,6 +40,10 @@ app.get('/', function (req, res){
 		title: "Character Building Tool",
 		heading: "CBT for Dad"
 	})
+
+	db.all("SELECT * FROM users;", function(err, rows){
+		console.log(rows);
+	})
 });
 
 
