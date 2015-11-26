@@ -42,11 +42,26 @@ app.get('/', function (req, res){
 	})
 
 	db.all("SELECT * FROM users;", function(err, rows){
-		console.log(rows);
+		console.log("rows from db:", rows);
 	})
+  // db.run("INSERT INTO users (username, password, first_name, last_name, email) VALUES (?,?,?,?,?);", "prwelber", "password", "Phil", "Welber", "prwelber@gmail.com", function (err) {
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     console.log('inserted without error');
+  //   }
+  // })
 });
 
+app.get('/learning', function (req, res){
+  console.log('learning route hit');
+  res.render('learning', {});
+});
 
+app.post('/users/create', function (req, res){
+  console.log("req.body:", req.body);
+  res.redirect('/learning');
+});
 
 
 

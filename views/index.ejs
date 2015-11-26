@@ -5,6 +5,18 @@
 	<title><%= title %></title>
 </head>
 <body>
+<h1>Landing Page & Intro</h1>
 	<%= heading %>
+
+
+  <form id="sign-up-form" action="/users/create" method="post">
+    <input type="text" name="username" placeholder="username"><br>
+    <input type="text" name="password" placeholder="password"><br>
+    <input type="text" name="first_name" placeholder="First Name"><br>
+    <input type="text" name="last_name" placeholder="Last Name"><br>
+    <input type="text" name="email" placeholder="email"><br>
+    <input type="submit">
+  </form>
+
 </body>
 </html>
