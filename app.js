@@ -30,13 +30,10 @@ app.use(passport.session());
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-var learning = require('./learning');
-
 //routes
+app.use('/', require('./routes/learning.js'));
 
-app.use('/birds', birds);
-
-app.get('/', function (req, res){
+app.get('/cbt', function (req, res){
 	console.log('index route hit');
 	res.render('index', {
 		title: "Character Building Tool",
@@ -46,22 +43,23 @@ app.get('/', function (req, res){
 	db.all("SELECT * FROM users;", function(err, rows){
 		console.log("rows from db:", rows);
 	})
-  // db.run("INSERT INTO users (username, password, first_name, last_name, email) VALUES (?,?,?,?,?);", "prwelber", "password", "Phil", "Welber", "prwelber@gmail.com", function (err) {
+  
+});
+
+// app.get('/learning', function (req, res){
+//   console.log('learning route hit');
+//   res.render('learning', {});
+// });
+
+app.post('/users/create', function (req, res){
+  console.log("req.body:", req.body);
+  // db.run("INSERT INTO users (username, password, first_name, last_name, email) VALUES (?,?,?,?,?);", req.body.username, req.body.password, req.body.first_name, req.body.last_name, req.body.email, function (err) {
   //   if (err) {
   //     console.log(err);
   //   } else {
   //     console.log('inserted without error');
   //   }
-  // })
-});
-
-app.get('/learning', function (req, res){
-  console.log('learning route hit');
-  res.render('learning', {});
-});
-
-app.post('/users/create', function (req, res){
-  console.log("req.body:", req.body);
+  // });
   res.redirect('/learning');
 });
 
