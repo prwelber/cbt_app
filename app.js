@@ -30,9 +30,11 @@ app.use(passport.session());
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-
+var learning = require('./learning');
 
 //routes
+
+app.use('/birds', birds);
 
 app.get('/', function (req, res){
 	console.log('index route hit');
