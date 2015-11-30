@@ -5,7 +5,7 @@ console.log('learning route file loaded');
 
 
 // define learning route
-router.get('/learning', function (req, res){
+router.get('/users/:id/learning', function (req, res){
 	console.log('learning route hit');
 	res.render('learning', {});
 });

@@ -13,7 +13,8 @@ username varchar,
 password varchar,
 first_name varchar,
 last_name varchar,
-email varchar
+email varchar,
+timestamp DATE DEFAULT (datetime('now','localtime'))
 );
 
 CREATE TABLE learning(
