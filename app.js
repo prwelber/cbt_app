@@ -7,38 +7,62 @@ var request = require('request');
 var sqlite3 = require('sqlite3').verbose();
 var _ = require('underscore');
 var db = new sqlite3.Database('tool.db');
+var session = require('client-sessions');
 
 //redis
 var redis = require('redis');
 var client = redis.createClient();
 client.on('connect', function() {
-    console.log('connected');
-  });
-
-// var passport = require('passport');
-// var Strategy = require('passport-local').Strategy;
+});
 
 //middleware
 var session = require('express-session');
-
-app.use(session({secret: 'ssshhhhh'}));
-
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var urlencodedBodyParser = bodyParser.urlencoded({extended: true});
-app.use(urlencodedBodyParser);
 var methodOverride = require('method-override');
+
+app.use(cookieParser());
+app.use(urlencodedBodyParser);
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
-// var RedisStore = require('connect-redis')(express);
-// app.use(express.session({ store: new RedisStore }));
 
-//passport
-// app.use(require('cookie-parser')());
-// app.use(require('body-parser').urlencoded({ extended: true }));
-// app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(session({
+  path: '/',
+  cookieName: 'session',
+  secret: 'random_stringgggggg',
+  duration: 45 * 60 * 1000,
+  resave: true,
+  saveUninitialized: true,
+  activeDuration: 30 * 60 * 1000,
+  httpOnly: true,
+  secure: true,
+  ephemeral: true
+}));
+
+app.use(function (req, res, next) {
+  if (req.session && req.session.user) {
+    client.hgetall(req.session.user.username, function (err, user) {
+      if (user) {
+        req.user = user;
+        delete req.user.password;
+        req.session.user = user;
+        res.locals.user = user;
+      }
+      next();
+    });
+  } else {
+    next();
+  }
+});
+
+function requireLogin (req, res, next) {
+  if (!req.user) {
+    res.redirect('/cbt');
+  } else {
+    next();
+  }
+};
 
 //views and view engine
 app.set('views', __dirname + '/views');
@@ -49,35 +73,28 @@ app.use('/', require('./routes/learning.js'));
 
 
 
-var sess;
 app.get('/cbt', function (req, res){
-  console.log('index route hit');
-  sess = req.session;
-  if (sess.email) {
-    console.log('session found')
-  } else {
-    res.render('index', {
-      title: "Character Building Tool",
-      heading: "CBT for Dad"
-    })
-  }
-	
-	// db.all("SELECT * FROM users;", function(err, rows){
-	// 	console.log("rows from db:", rows);
-	// })  
+  console.log(req.cookies.name);
+  res.cookie("name", "Phil");
+  res.render('index', {
+    title: "Character Building Tool",
+    heading: "CBT for Dad"
+  })
 });//end of (GET '/cbt')
-
-// app.get('/learning', function (req, res){
-//   console.log('learning route hit');
-//   res.render('learning', {});
-// });
 
 app.post('/users/create', function (req, res){
   console.log("req.body:", req.body);
-  sess = req.session;
-  sess.email = req.body.email;
-  sess.username = req.body.username;
-  sess.firstName = req.body.first_name;
+
+  //create user in DB
+  db.run("INSERT INTO users (username, password, first_name, last_name, email) VALUES (?,?,?,?,?);", req.body.username, req.body.password, req.body.first_name, req.body.last_name, req.body.email, function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('inserted without error');
+    }
+  });
+
+  //create user in Redis
   client.hmset(req.body.username, {
     'username': req.body.username,
     'password': req.body.password,
@@ -86,72 +103,96 @@ app.post('/users/create', function (req, res){
     'email': req.body.email,
     'created': Date()
   });
-
-  client.hgetall(req.body.username, function (err, object) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("this is the returned obejct from hgetall:", object);
-      res.redirect('/users/'+object.username+'/home');
-    }
-  })
-  // db.run("INSERT INTO users (username, password, first_name, last_name, email) VALUES (?,?,?,?,?);", req.body.username, req.body.password, req.body.first_name, req.body.last_name, req.body.email, function (err) {
+  //pull user from Redis and send to user dashboard
+  // client.hgetall(req.body.username, function (err, object) {
   //   if (err) {
   //     console.log(err);
+  //   } else if (req.body.password === object.password) {
+  //     console.log("this is the returned obejct from hgetall:", object);
+  //     //sets a cookie with the user's information
+  //     req.session.user = object;
+  //     console.log('req.session.user:', req.session.user);
+  //     res.redirect('/users/'+object.username+'');
   //   } else {
-  //     console.log('inserted without error');
+  //     console.log('password not correct');
+  //     res.redirect('/cbt');
   //   }
-  // });
-  
-  // db.all("SELECT * FROM users;", function (err, rows) {
-  //   console.log(rows);
-  // });
+  // })
+
+  db.all("SELECT * FROM users WHERE username='"+req.body.username+"';", function (err, data) {
+    if (err) {
+      console.log(err);
+    } else if (req.body.password === data.password) {
+      //set cookie with user info
+      req.session.user = data;
+      res.redirect('/users/'+data.username);
+    } else {
+      console.log('password not correct');
+      res.redirect('/cbt');
+    }
+  })
 });//END OF APP.POST to USERS/CREATE
 
-app.get('/users/:id', function (req, res) {
-  console.log('user home page route hit');
-  sess = req.session;
-  if (sess.username) {
-    console.log(sess.username + " is the username");
-    console.log(req.session);
-    client.hgetall(req.params.id, function (err, object) {
-      console.log(object);
-      res.render('users_home', {
-        name: object.first_name,
-        username: object.username
-      });
-    });
-  } else {
-    console.log('need to log in');
-  }
-  // db.all("SELECT * FROM users;", function (err, rows) {
-  //   console.log(rows);  
-  // })  
 
-  
+app.post('/users/login', function (req, res) {
+  client.hgetall(req.body.username, function (err, data) {
+    if (err) {
+      console.log(err);
+    } else if (req.body.password === data.password) {
+      req.session.user = data;
+      res.redirect('/users/'+data.username);
+    } else {
+      console.log(data)
+      console.log('password not correct');
+      res.redirect('/cbt');
+    }
+  })
+
+  // var query = "SELECT username, password FROM users WHERE username='" +req.body.username+"';"
+  // db.all(query, function (err, result) {
+  //   if (err) {
+  //     console.log(err);
+  //   } else if (req.body.password === result[0].password) {
+  //     //set cookie with user info
+  //     req.session.user = result;
+  //     res.redirect('/users/'+result[0].username);
+  //   } else {
+  //     console.log(result[0])
+  //     console.log('password not correct');
+  //     res.redirect('/cbt');
+  //   }
+  // })
 });
 
 
+app.get('/users/:id', requireLogin, function (req, res) {
+  console.log('user home page route hit');
+  res.clearCookie('name');
+  // if (req.session && req.session.user) {
+    client.hgetall(req.session.user.username, function (err, user) {
+      if (!user) {
+        console.log('no user found sending back to index');
+        req.session.destroy();
+        res.redirect('/cbt');
+      } else {
+        console.log('user:', user);
+        res.render('users_home', {
+          name: user.first_name,
+          username: user.username
+        })
+      }
+    })
+  // }
+});
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.get('/logout', function (req, res) {
+  req.session.destroy();
+  res.redirect('/cbt');
+})
 
 
 //config
 app.listen(3000, function() {
-  console.log("Forum on port 3000");
+  console.log("Listening on port 3000");
 });

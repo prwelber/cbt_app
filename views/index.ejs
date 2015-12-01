@@ -30,12 +30,19 @@ Have fun!</h2>
 </section>
 
   <form id="sign-up-form" action="/users/create" method="post">
-  	<h3>Sign Up or Sign In</h3>
+  	<h3>Sign Up</h3>
     <input type="text" name="username" placeholder="username"><br>
     <input type="text" name="password" placeholder="password"><br>
     <input type="text" name="first_name" placeholder="First Name"><br>
     <input type="text" name="last_name" placeholder="Last Name"><br>
     <input type="text" name="email" placeholder="email"><br>
+    <input type="submit">
+  </form>
+
+  <form id="login-form" action="/users/login" method="post">
+    <h3>Login</h3>
+    <input type="text" name="username" placeholder="username"><br>
+    <input type="text" name="password" placeholder="password"><br>
     <input type="submit">
   </form>
 

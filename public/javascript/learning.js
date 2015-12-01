@@ -1,12 +1,11 @@
 $(document).ready(function () {
   console.log('DOM ready');
+  var username = $("#username").text();
+  var submitButton = document.getElementById("learning-submit-button");
 
-  var submitButton = document.getElementById('question-1-submit');
-
-  submitButton.addEventListener('click', function (event) {
-    console.log('clicked');
-    var questionOneText = document.getElementById('question-1-textarea').value;
-    console.log(questionOneText);
-  });
+  // submitButton.addEventListener('click', function (event) {
+  // 	event.preventDefault();
+  // 	console.log('clicked');
+  // })
 
 });

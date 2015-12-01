@@ -7,13 +7,43 @@
   
 </head>
 <body>
-<h1>Love of Learning</h1>
+	<data></data>
+<header><data id="username" style="display: none;"><%= username %></data><a href="/cbt">Home</a> | <a href="/users/<%= username %>/">User Dashboard</a> | <a href="/logout">Logout</a>
+</header>
+<section>
+	<h1>Love of Learning</h1>
+	<article>Most of us are born with some degree of curiousity about the world around us, but this quality can also be cultivated simply by investigating areas/ideas that are outside of our regular sphere or "comfort zone."</article>
+</section>
+
 <h2>Questions for <%= name %>:</h2>
-<h3>Do you enjoy learning new things?</h3>
-<textarea name="" id="question-1-textarea" cols="50" rows="10" placeholder="type your entry here"></textarea><br>
-<button id="question-1-submit">Submit</button>
+
+	<form id="question-form" action="/users/<%= username %>/learning/create" method="post">
+
+		<input type="hidden" name="username" value="<%= username %>">
+		<h3 id="question-1">Name an idea or skill that I've added to my arsenal, or am working on adding. (e.g., starting to learn a language, working on my swimming stroke) </h3>
+		<textarea form="question-form" id="question-1-textarea" name="answer1" cols="50" rows="10" placeholder="type your entry here"></textarea>
+		<h3 id="question-2">What was the best book or article I read recently, and what was the main thing I learned from it?</h3>
+		<textarea form="question-form" id="question-2-textarea" name="answer2" cols="50" rows="10" placeholder="type your entry here"></textarea>
+		<h3 id="question-3">What was the best movie I saw recently, and what was the main thing I got out of it?</h3>
+		<textarea form="question-form" id="question-3-textarea" name="answer3" cols="50" rows="10" placeholder="type your entry here"></textarea>
+		<br>
+		<input id="learning-submit-button" type="submit" value="Submit Answers">
+
+</form>
 
 
+<h2>Previous Answers</h2>
+<% previousAnswers.forEach(function (el) { %>
+Date and time of answer: <%= el.timestamp %>
+<h5>Answer One:</h5>
+	<%= el.answer1 %>
+<h5>Answer Two:</h5>
+	<%= el.answer2 %>
+<h5>Answer Three:</h5>
+	<%= el.answer3 %>
+	<br>
+	<br>
+<% }) %>
 
 
 

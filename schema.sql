@@ -22,16 +22,9 @@ id Integer Primary KEY AUTOINCREMENT,
 username varchar,
 timestamp DATE DEFAULT (datetime('now','localtime')),
 user_id integer,
-answer text,
 answer1 text,
 answer2 text,
-answer3 text,
-answer4 text,
-answer5 text,
-answer6 text,
-answer7 text,
-answer8 text,
-answer9 text
+answer3 text
 );
 
 CREATE TABLE humility(
