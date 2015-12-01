@@ -62,7 +62,7 @@ function requireLogin (req, res, next) {
   } else {
     next();
   }
-};
+}
 
 //views and view engine
 app.set('views', __dirname + '/views');
@@ -71,7 +71,9 @@ app.set('view engine', 'ejs');
 //routes
 app.use('/', require('./routes/learning.js'));
 
-
+app.get('/', function (req, res) {
+  res.redirect('/cbt');
+})
 
 app.get('/cbt', function (req, res){
   console.log(req.cookies.name);
@@ -107,7 +109,6 @@ app.post('/users/create', function (req, res){
       });
     }
   })
- 
   //pull user from Redis and send to user dashboard
   // client.hgetall(req.body.username, function (err, object) {
   //   if (err) {
@@ -124,18 +125,18 @@ app.post('/users/create', function (req, res){
   //   }
   // })
 
-  db.all("SELECT * FROM users WHERE username='"+req.body.username+"';", function (err, data) {
-    if (err) {
-      console.log(err);
-    } else if (req.body.password === data.password) {
-      //set cookie with user info
-      req.session.user = data;
-      res.redirect('/users/'+data.username);
-    } else {
-      console.log('password not correct');
-      res.redirect('/cbt');
-    }
-  })
+  // db.all("SELECT * FROM users WHERE username='"+req.body.username+"';", function (err, data) {
+  //   if (err) {
+  //     console.log(err);
+  //   } else if (req.body.password === data.password) {
+  //     //set cookie with user info
+  //     req.session.user = data;
+  //     res.redirect('/users/'+data.username);
+  //   } else {
+  //     console.log('password not correct');
+  //     res.redirect('/cbt');
+  //   }
+  // })
 });//END OF APP.POST to USERS/CREATE
 
 

@@ -6,6 +6,7 @@ $(document).ready(function () {
   submitButton.addEventListener('click', function (event) {
   	event.preventDefault();
   	console.log('clicked');
+    $(".message-box").empty();
   	
   	var answer1 = "Question: " + $("#question-1").text() + "Answer: " + $("#question-1-textarea").val(),
   			answer2 = "\nQuestion: " + $("#question-2").text() + "Answer: " + $("#question-2-textarea").val(),

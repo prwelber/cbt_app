@@ -1,11 +1,40 @@
 {
   "name": "app_for_dad",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "client-sessions": "^0.7.0",
+    "body-parser": "^1.14.1",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "connect-redis": "^3.0.1",
+    "dotenv": "^1.2.0",
+    "ejs": "^2.3.4",
+    "bcrypt": "^0.8.5",
+    "express-session": "^1.12.1",
+    "fs": "^0.0.2",
+    "method-override": "^2.3.5",
+    "jquery": "^2.1.4",
+    "passport": "^0.3.2",
+    "request": "^2.67.0",
+    "redis": "^2.4.2",
+    "passport-local": "^1.0.0",
+    "underscore": "^1.8.3",
+    "sqlite3": "^3.1.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prwelber/app_for_dad.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prwelber/app_for_dad/issues"
+  },
+  "homepage": "https://github.com/prwelber/app_for_dad#readme",
+  "description": ""
 }
