@@ -85,24 +85,29 @@ app.get('/cbt', function (req, res){
 app.post('/users/create', function (req, res){
   console.log("req.body:", req.body);
 
-  //create user in DB
-  db.run("INSERT INTO users (username, password, first_name, last_name, email) VALUES (?,?,?,?,?);", req.body.username, req.body.password, req.body.first_name, req.body.last_name, req.body.email, function (err) {
-    if (err) {
-      console.log(err);
+  //create user in DB if username does not already exist
+  client.hgetall(req.body.username, function (err, result) {
+    if (result) {
+      res.json({status: "username already exists - please go back"})
     } else {
-      console.log('inserted without error');
+       db.run("INSERT INTO users (username, password, first_name, last_name, email) VALUES (?,?,?,?,?);", req.body.username, req.body.password, req.body.first_name, req.body.last_name, req.body.email, function (err) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log('inserted without error');
+          client.hmset(req.body.username, {
+            'username': req.body.username,
+            'password': req.body.password,
+            'first_name': req.body.first_name,
+            'last_name': req.body.last_name,
+            'email': req.body.email,
+            'created': Date()
+          });
+        }
+      });
     }
-  });
-
-  //create user in Redis
-  client.hmset(req.body.username, {
-    'username': req.body.username,
-    'password': req.body.password,
-    'first_name': req.body.first_name,
-    'last_name': req.body.last_name,
-    'email': req.body.email,
-    'created': Date()
-  });
+  })
+ 
   //pull user from Redis and send to user dashboard
   // client.hgetall(req.body.username, function (err, object) {
   //   if (err) {

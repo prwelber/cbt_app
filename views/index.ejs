@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title><%= title %></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
 </head>
 <body>
 <h1>Landing Page & Intro</h1>
@@ -36,7 +37,7 @@ Have fun!</h2>
     <input type="text" name="first_name" placeholder="First Name"><br>
     <input type="text" name="last_name" placeholder="Last Name"><br>
     <input type="text" name="email" placeholder="email"><br>
-    <input type="submit">
+    <input id="index-submit" type="submit">
   </form>
 
   <form id="login-form" action="/users/login" method="post">
