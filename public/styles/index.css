@@ -6,15 +6,20 @@ header {
   width: 40%;
   border: 2px solid mediumaquamarine;
   margin: 0 auto;
-  font-size: 25px;
 }
 
 h1 {
   font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 50px;
 }
 
 #index-overview {
   margin: 0 auto;
-  width: 80%;
+  margin-top: 25px;
+  width: 82%;
   font-family: 'Raleway', sans-serif;
+  letter-spacing: 2px;
+  font-size: 20px;
+  line-height: 1.5;
 }
