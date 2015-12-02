@@ -71,8 +71,10 @@ app.set('view engine', 'ejs');
 //routes
 app.use('/', require('./routes/learning.js'));
 
+
+
 app.get('/', function (req, res) {
-  res.redirect('/cbt');
+  res.render('landing', {});
 })
 
 app.get('/cbt', function (req, res){
@@ -195,10 +197,10 @@ app.get('/users/:id', requireLogin, function (req, res) {
 app.get('/logout', function (req, res) {
   req.session.destroy();
   res.redirect('/cbt');
-})
+});
 
 
 //config
-app.listen(3000, function() {
+app.listen(3000, function () {
   console.log("Listening on port 3000");
 });

@@ -5,6 +5,12 @@
   <title>Users Home</title>
 </head>
 <body>
+<header>
+    <data id="username" style="display: none;"><%= username %></data>
+    <a href="/cbt">Home</a> | <a href="/users/<%= username %>/">User Dashboard</a> | 
+    <a href="/users/<%= username %>/learning/show">Past Answers</a> | 
+    <a href="/logout">Logout</a>
+  </header>
 <h1>Users Home Page</h1>
 <h3>Hello, <%= name %>. This is your home page for the Character Building Tool. From here, you can navigate to the different behaviors and complete the entries.</h3>
 

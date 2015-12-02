@@ -27,8 +27,7 @@ client.on('connect', function() {
 
 // define learning route
 router.get('/users/:id/learning', requireLogin, function (req, res){
-  var query = "SELECT * FROM learning WHERE username='" +req.params.id+ "';";
-  db.all(query, function (err, rows) {
+  db.all("SELECT * FROM learning WHERE username = ?",req.params.id, function (err, rows) {
   	if (err) {
   		console.log(err)
   	} else {
@@ -37,7 +36,7 @@ router.get('/users/:id/learning', requireLogin, function (req, res){
   		res.render('learning', {
   			name:data.first_name,
   			username: data.username,
-  			previousAnswers: rows
+  			rows: rows
   		})
   	})
   	}
@@ -47,7 +46,7 @@ router.get('/users/:id/learning', requireLogin, function (req, res){
 router.post('/users/:id/learning/create', function (req, res){
   console.log('learning post route hit');
 
-  db.run("INSERT INTO learning (username, user_id, answer1, answer2, answer3) VALUES (?,?,?,?,?);", req.body.username, 1, req.body.answer1, req.body.answer2, req.body.answer3, function (err) {
+  db.run("INSERT INTO learning (username, user_id, question1, answer1, question2, answer2, question3, answer3, random) VALUES (?,?,?,?,?,?,?,?,?);", req.body.username, 1, req.body.question1, req.body.answer1, req.body.question2, req.body.answer2, req.body.question3, req.body.answer3, req.body.random_thought, function (err) {
     if (err) {
       console.log(err);
     } else {
@@ -57,6 +56,33 @@ router.post('/users/:id/learning/create', function (req, res){
     }
   });
 });
+
+router.get('/users/:id/learning/show', requireLogin, function (req, res) {
+  console.log('learning show route hit');
+  db.all("SELECT * FROM learning WHERE username = ?", req.params.id, function (err, rows) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render('learning_show', {
+        rows: rows,
+        username: req.params.id
+      });
+    }
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 module.exports = router;

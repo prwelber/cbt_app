@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Past Answers</title>
+</head>
+<body>
+  <header><a href="/cbt">Home</a> | <a href="/users/<%= username %>/">User Dashboard</a> | <a href="/users/<%= username %>/learning/">Love of Learning</a> | <a href="/logout">Logout</a>
+  </header>
+
+  <h2>Your past responses to learning questions</h1>
+
+  <% rows.forEach(function (row) { %>
+   <h4>Date Answered: <%= row.timestamp %></h5>
+   <p><%= row.question1 %></p> 
+   <p class="answer"><%= row.answer1 %></p>
+   <p><%= row.question2 %></p> 
+   <p class="answer"><%= row.answer2 %></p> 
+   <p><%= row.question3 %></p>
+   <p class="answer"><%= row.answer3 %></p> 
+  <% }) %>
+</body>
+</html>

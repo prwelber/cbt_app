@@ -1,5 +1,6 @@
 $(document).ready(function () {
   console.log('DOM ready');
+  /*
   var username = $("#username").text();
   var submitButton = document.getElementById("learning-submit-button");
 
@@ -43,5 +44,9 @@ $(document).ready(function () {
   	$(".message-box").append("<h3>Entries Submitted!</h3>")
 
   })
+*/
 
 });
+
+
+
