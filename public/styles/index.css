@@ -16,10 +16,27 @@ h1 {
 
 #index-overview {
   margin: 0 auto;
-  margin-top: 25px;
+  margin-top: 5%;
   width: 82%;
   font-family: 'Raleway', sans-serif;
   letter-spacing: 2px;
   font-size: 20px;
   line-height: 1.5;
+}
+
+.form-container {
+  margin-top: 5%;
+}
+
+.form {
+  font-family: 'Raleway', sans-serif;
+  display: inline-block;
+  width: 25%;
+  vertical-align: top;
+}
+
+.submit {
+  background-color: mediumaquamarine;
+  border: 1px solid mediumaquamarine;
+  border-radius: 7px;
 }

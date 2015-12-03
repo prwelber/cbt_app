@@ -3,26 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <title>Users Home</title>
+  <link href='https://fonts.googleapis.com/css?family=Oswald|Raleway|Lato' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/styles/users_home.css"></link>
 </head>
 <body>
-<header>
+  <header>
     <data id="username" style="display: none;"><%= username %></data>
     <a href="/cbt">Home</a> | <a href="/users/<%= username %>/">User Dashboard</a> | 
     <a href="/users/<%= username %>/learning/show">Past Answers</a> | 
     <a href="/logout">Logout</a>
   </header>
-<h1>Users Home Page</h1>
-<h3>Hello, <%= name %>. This is your home page for the Character Building Tool. From here, you can navigate to the different behaviors and complete the entries.</h3>
-
-<ul>
-  <li><a href="/users/<%= username %>/learning">Love of Learning</a></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-</ul>
-
+  <div class="container">
+    <h1>Welcome, <%= name %>!</h1>
+    <h3>Below are the seven behavioral traits that we have chosen to focus on. Pick one to start answering questions and building your history.
+    </h3>
+    <div class="list-container">
+      <div class="list-group">
+        <a href="/users/<%= username %>/learning"><button type="button" class="list-group-item trait">Love of Learning</button></a>
+        <a href="/users/<%= username %>/humility"><button type="button" class="list-group-item trait">Humility</button></a>
+        <a href="/users/<%= username %>/openness"><button type="button" class="list-group-item trait">Ideological Openness</button></a>
+        <a href="/users/<%= username %>/tolerance"><button type="button" class="list-group-item trait">Tolerance</button></a>
+        <a href="/users/<%= username %>/generosity"><button type="button" class="list-group-item trait">Generosity</button></a>
+        <a href="/users/<%= username %>/autonomy"><button type="button" class="list-group-item trait">Autonomy</button></a>
+        <a href="/users/<%= username %>/honesty"><button type="button" class="list-group-item trait">Honesty</button></a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
