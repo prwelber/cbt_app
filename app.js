@@ -56,9 +56,10 @@ app.use(function (req, res, next) {
 });
 
 function requireLogin (req, res, next) {
-  if (!req.user) {
+  if (!req.session.user) {
     res.redirect('/cbt');
   } else {
+    console.log('req.session.user found, moving forward');
     next();
   }
 }
@@ -77,7 +78,8 @@ app.get('/', function (req, res) {
 })
 
 app.get('/cbt', function (req, res){
-  console.log(req.cookies.name);
+  console.log("req.cookies.name from GET /cbt", req.cookies.name);
+  console.log("req.session.user from GET /cbt", req.session.user);
   res.cookie("name", "Phil");
   res.render('index', {
     title: "Character Building Tool",
@@ -175,7 +177,6 @@ app.post('/users/login', function (req, res) {
 app.get('/users/:id', requireLogin, function (req, res) {
   console.log('user home page route hit');
   res.clearCookie('name');
-  // if (req.session && req.session.user) {
     client.hgetall(req.session.user.username, function (err, user) {
       if (!user) {
         console.log('no user found sending back to index');
@@ -189,13 +190,12 @@ app.get('/users/:id', requireLogin, function (req, res) {
         })
       }
     })
-  // }
 });
 
 
 app.get('/logout', function (req, res) {
   req.session.destroy();
-  res.redirect('/cbt');
+  res.redirect('/');
 });
 
 
