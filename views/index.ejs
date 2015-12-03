@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title><%= title %></title>
+	<title>CBT</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
   <link rel="stylesheet" type="text/css" href="/styles/index.css"></link>
   <link href='https://fonts.googleapis.com/css?family=Oswald|Raleway' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-  <header>
+  <!-- <header>
     <div>
       <h1>Character Building Tool</h1>
     </div>
-  </header>
+  </header> -->
   <section id="index-overview">
   	<article>The Character Building Tool, inspired by an 
   <a href="http://www.nytimes.com/2014/08/29/opinion/david-brooks-the-mental-virtues.html" target="_blank">Op-Ed article</a> by New York Times 
@@ -35,22 +35,7 @@
   Have fun!</article>
   </section>
 
-  <form id="sign-up-form" action="/users/create" method="post">
-  	<h3>Sign Up</h3>
-    <input type="text" name="username" placeholder="username"><br>
-    <input type="text" name="password" placeholder="password"><br>
-    <input type="text" name="first_name" placeholder="First Name"><br>
-    <input type="text" name="last_name" placeholder="Last Name"><br>
-    <input type="text" name="email" placeholder="email"><br>
-    <input id="index-submit" type="submit">
-  </form>
-
-  <form id="login-form" action="/users/login" method="post">
-    <h3>Login</h3>
-    <input type="text" name="username" placeholder="username"><br>
-    <input type="text" name="password" placeholder="password"><br>
-    <input type="submit">
-  </form>
+  <h3><a href="/signup">Sign Up</a> or <a href="/login">Log In</a></h3>
 
 </body>
 </html>

@@ -73,17 +73,22 @@ app.use('/', require('./routes/learning.js'));
 
 
 app.get('/', function (req, res) {
-  res.render('landing', {});
+  res.render('landing');
 })
 
 app.get('/cbt', function (req, res){
   console.log(req.cookies.name);
   res.cookie("name", "Phil");
-  res.render('index', {
-    title: "Character Building Tool",
-    heading: "CBT for Dad"
-  })
-});//end of (GET '/cbt')
+  res.render('index');
+});
+
+app.get('/signup', function (req, res) {
+  res.render('signup');
+});
+
+app.get('/login', function (req, res) {
+  res.render('login');
+})
 
 app.post('/users/create', function (req, res){
   console.log("req.body:", req.body);
@@ -106,6 +111,7 @@ app.post('/users/create', function (req, res){
             'email': req.body.email,
             'created': Date()
           });
+
         }
       });
     }
@@ -147,6 +153,7 @@ app.post('/users/login', function (req, res) {
       console.log(err);
     } else if (req.body.password === data.password) {
       req.session.user = data;
+      res.cookie("user", data);
       res.redirect('/users/'+data.username);
     } else {
       console.log(data)
@@ -175,6 +182,7 @@ app.post('/users/login', function (req, res) {
 app.get('/users/:id', requireLogin, function (req, res) {
   console.log('user home page route hit');
   res.clearCookie('name');
+  console.log(req.cookies.user);
   // if (req.session && req.session.user) {
     client.hgetall(req.session.user.username, function (err, user) {
       if (!user) {
