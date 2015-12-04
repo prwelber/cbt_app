@@ -1,5 +1,15 @@
+body {
+  text-align: center;
+}
+
 .container {
 	text-align: center;
+}
+
+h1 {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 3px;
+  font-size: 35px;
 }
 
 h3 {
@@ -7,13 +17,39 @@ h3 {
 	letter-spacing: 1.5px;
 	font-size: 20px;
 	line-height: 25px;
+  margin-bottom: 1%;
+  line-height: 30px;
 }
 
-.list-container {
-	margin: 5% auto;
-	width: 25%;
+img {
+  height: 180px;
+  width: 275px;
 }
 
-.list-group {
+a:visited, a:hover, a:active, a:link {
+      text-decoration: none;
+    }
 
+.phil-card {
+  width: 275px;
+  height: 240px;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 1% 5px 1% 5px;
+  box-shadow: 2px 2px grey;
 }
+
+.phil-card-content {
+  padding-top: 10px;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+}
+
+
+header {
+  position: relative;
+  right: 37%;
+}
+
+

@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Users Home</title>
   <link href='https://fonts.googleapis.com/css?family=Oswald|Raleway|Lato' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/styles/users_home.css"></link>
 </head>
 <body>
@@ -16,19 +15,78 @@
   </header>
   <div class="container">
     <h1>Welcome, <%= name %>!</h1>
-    <h3>Below are the seven behavioral traits that we have chosen to focus on. Pick one to start answering questions and building your history.
+    <h3>Below are the seven behavioral traits that we have chosen to focus on. <br>Pick one to start answering questions and building your history.
     </h3>
-    <div class="list-container">
-      <div class="list-group">
-        <a href="/users/<%= username %>/learning"><button type="button" class="list-group-item trait">Love of Learning</button></a>
-        <a href="/users/<%= username %>/humility"><button type="button" class="list-group-item trait">Humility</button></a>
-        <a href="/users/<%= username %>/openness"><button type="button" class="list-group-item trait">Ideological Openness</button></a>
-        <a href="/users/<%= username %>/tolerance"><button type="button" class="list-group-item trait">Tolerance</button></a>
-        <a href="/users/<%= username %>/generosity"><button type="button" class="list-group-item trait">Generosity</button></a>
-        <a href="/users/<%= username %>/autonomy"><button type="button" class="list-group-item trait">Autonomy</button></a>
-        <a href="/users/<%= username %>/honesty"><button type="button" class="list-group-item trait">Honesty</button></a>
-      </div>
+  </div>
+
+  <div class="phil-card animated pulse">
+    <a href="/users/<%= username %>/learning">
+      <img src="http://www.tripwire.com/state-of-security/wp-content/uploads/security31.jpg">
+    </a>
+    <div class="phil-card-content">
+      <a href="">Love of Learning</a>
     </div>
   </div>
+  <div class="phil-card">
+    <a href="/users/<%= username %>/humility">
+      <img src="http://steveberger.gracechapel.net/wp-content/uploads/2013/04/humility_serving_helping.jpg">
+    </a>
+    <div class="phil-card-content">
+      <a href="/users/<%= username %>/humility">Humility</a>
+    </div>
+  </div>
+  <div class="phil-card">
+    <a href="/users/<%= username %>/openness">
+      <img src="http://blogs.scientificamerican.com/beautiful-minds/files/2013/11/openness.jpg">
+    </a>
+    <div class="phil-card-content">
+      <a href="/users/<%= username %>/openness">Openness</a>
+    </div>
+  </div>
+  <div class="phil-card">
+    <a href="/users/<%= username %>/tolerance">
+      <img src="http://www.scarymommy.com/wp-content/uploads/2014/03/Tolerance.png">
+    </a>
+    <div class="phil-card-content">
+      <a href="/users/<%= username %>/tolerance">Tolerance</a>
+    </div>
+  </div>
+  <div class="phil-card">
+    <a href="/users/<%= username %>/generosity">
+      <img src="http://brinkleywarren.com/wp-content/uploads/2014/04/generosity.jpg">
+    </a>
+    <div class="phil-card-content">
+      <a href="/users/<%= username %>/generosity">Generosity</a>
+    </div>
+  </div>
+  <div class="phil-card">
+    <a href="/users/<%= username %>/autonomy">
+      <img src="https://i.ytimg.com/vi/vYFEa-hq9zI/maxresdefault.jpg">
+    </a>
+    <div class="phil-card-content">
+      <a href="/users/<%= username %>/autonomy">Autonomy</a>
+    </div>
+  </div>
+  <div class="phil-card">
+    <a href="/users/<%= username %>/honesty">
+      <img src="http://www.thelivingyogablog.com/wp-content/uploads/2013/11/Purity.jpg">
+    </a>
+    <div class="phil-card-content">
+      <a href="/users/<%= username %>/honesty">Honesty</a>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
