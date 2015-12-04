@@ -1,0 +1,82 @@
+body {
+	text-align: center;
+	max-width: 1382px;
+}
+
+header {
+	position: absolute;
+	top: 1%;
+	left: 1%;
+}
+
+h1 {
+	font-family: 'Oswald', sans-serif;
+  letter-spacing: 3px;
+  font-size: 35px;
+  margin-top: 4%;
+}
+
+
+section article {
+	font-family: 'Raleway', sans-serif;
+  letter-spacing: 2px;
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+hr {
+	margin: 0 auto;
+	margin-top: 2%;
+	color: lightgray;
+  width: 86%;
+}
+
+h3 {
+	font-family: 'Lato', sans-serif;
+	letter-spacing: 1.5px;
+	font-size: 20px;
+	line-height: 1.5;
+	padding: 0 20%;
+}
+
+textarea {
+	border: 2px solid #999;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
+  -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 75%;
+}
+
+form {
+	margin-top: 3%;
+	text-align: center;
+}
+
+
+.past-answers {
+	padding-left: 3%;
+	padding-right: 3%;
+	text-align: left;
+}
+
+input[type=submit] {
+	background-color: mediumaquamarine;
+	border-radius: 5px;
+	border: 1px solid mediumaquamarine;
+	font-size: 14px;
+}
+
+h4 {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+}
+
+p {
+	font-family: 'Lato', sans-serif;
+}
+
+
+

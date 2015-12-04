@@ -6,66 +6,72 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.2/backbone-min.js"></script>
-  
+  <link href='https://fonts.googleapis.com/css?family=Oswald|Raleway|Lato' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/styles/learning.css">
+
 </head>
 <body>
+
 	<header>
 		<data id="username" style="display: none;"><%= username %></data>
 		<a href="/cbt">Home</a> | <a href="/users/<%= username %>/">User Dashboard</a> | 
 		<a href="/users/<%= username %>/learning/show">Past Answers</a> | 
 		<a href="/logout">Logout</a>
 	</header>
+
 	<section>
 		<h1>Love of Learning</h1>
-		<article>Most of us are born with some degree of curiousity about the world around us, but this quality can also be cultivated simply by investigating areas/ideas that are outside of our regular sphere or "comfort zone."</article>
+		<article>Most of us are born with some degree of curiousity about the world around us, but this quality can also be cultivated simply by investigating areas and ideas that are outside of our regular sphere or "comfort zone."</article>
 	</section>
-
-	<h2>Questions for <%= name %>:</h2>
-
+	<hr>
 	<form id="question-form" action="/users/<%= username %>/learning/create" method="post">
 
 		<input type="hidden" name="username" value="<%= username %>">
 
 		<div class="question">
-		<h3 id="question-1">Name an idea or skill that I've added to my arsenal, or am working on adding. (e.g., starting to learn a language, working on my swimming stroke) </h3>
-		<textarea form="question-form" id="question-1-textarea" name="answer1" cols="50" rows="10" placeholder="What have you been learning that you can add to your repertoire?"></textarea>
-		<input type="hidden" name="question1" value="Name an idea or skill that I've added to my arsenal, or am working on adding. (e.g., starting to learn a language, working on my swimming stroke)?">
+			<h3 id="question-1">Name an idea or skill that I've added to my arsenal, or am working on adding.
+			</h3>
+			<textarea form="question-form" id="question-1-textarea" name="answer1" cols="80" rows="10" placeholder="Example: learning a language, working on my swimming stroke, learning to program"></textarea>
+			<input type="hidden" name="question1" value="Name an idea or skill that I've added to my arsenal, or am working on adding.">
+				<div class="past-answers">
+					<h4>Previous Entries</h4>
+						<% rows.forEach(function (row) { %>
+							<p>On <%= row.timestamp %> you wrote:<br><%= row.answer1 %></p>
+						<% }) %>
+				</div>
 		</div>
-		<div class="past-answers">
-			<h4>Previous Answers</h4>
-			<% rows.forEach(function (row) { %>
-				<p><%= row.timestamp %>: <%= row.answer1 %></p>
-			<% }) %>
-		</div>
+
 		<div class="question">
-		<h3 id="question-2">What was the best book or article I read recently, and what was the main thing I learned from it?</h3>
-		<textarea form="question-form" id="question-2-textarea" name="answer2" cols="50" rows="10" placeholder="What have you learned from a recent book or article?"></textarea>
-		<input type="hidden" name="question2" value="What was the best book or article I read recently, and what was the main thing I learned from it?">
-		</div>
-		<div class="past-answers">
-			<h4>Previous Answers</h4>
-			<% rows.forEach(function (row) { %>
-				<p><%= row.timestamp %>: <%= row.answer2 %></p>
-			<% }) %>
+			<h3 id="question-2">What was the best book or article I read recently, and what was the main thing I learned from it?
+			</h3>
+			<textarea form="question-form" id="question-2-textarea" name="answer2" cols="80" rows="10" placeholder="What have you learned from a recent book or article?"></textarea>
+			<input type="hidden" name="question2" value="What was the best book or article I read recently, and what was the main thing I learned from it?">
+			<div class="past-answers">
+				<h4>Previous Entries</h4>
+					<% rows.forEach(function (row) { %>
+						<p><%= row.timestamp %>: <%= row.answer2 %></p>
+					<% }) %>
+			</div>
 		</div>
 		
 		<div class="question">
-		<h3 id="question-3">What was the best movie I saw recently, and what was the main thing I got out of it?</h3>
-		<textarea form="question-form" id="question-3-textarea" name="answer3" cols="50" rows="10" placeholder="Seen anything good lately? What did you learn?"></textarea>
-		<input type="hidden" name="question3" value="What was the best movie I saw recently, and what was the main thing I got out of it?">
+			<h3 id="question-3">What was the best movie I saw recently, and what was the main thing I got out of it?
+			</h3>
+			<textarea form="question-form" id="question-3-textarea" name="answer3" cols="80" rows="10" placeholder="Seen anything good lately? What did you learn?"></textarea>
+			<input type="hidden" name="question3" value="What was the best movie I saw recently, and what was the main thing I got out of it?">
+			<div class="past-answers">
+				<h4>Previous Entries</h4>
+				<% rows.forEach(function (row) { %>
+					<p><%= row.timestamp %>: <%= row.answer3 %></p>
+				<% }) %>
+			</div>
 		</div>
-		<div class="past-answers">
-			<h4>Previous Answers</h4>
-			<% rows.forEach(function (row) { %>
-				<p><%= row.timestamp %>: <%= row.answer3 %></p>
-			<% }) %>
-		</div>
+
 		<div class="question">
-			<h3>Do you have a random or stray thought about the topic that was not addressed by one of the prompts? Jot it down here.</h3>
-			<textarea name="random_thought" id="random-textarea" cols="50" rows="10" placeholder="The perfect place for a random thought!"></textarea>
-		</div>
+			<h3>Do you have an additional thought about the topic that was not addressed by one of the prompts?</h3>
+			<textarea name="random_thought" id="random-textarea" cols="80" rows="10" placeholder="The perfect place for a random thought!"></textarea>
 		<div class="past-answers" id="random-answer">
-			<h4>Previous Answers</h4>
+			<h4>Previous Entries</h4>
 			<% rows.forEach(function (row) { %>
 				<% if (!row.random) { %>
 					<% console.log('nothing'); %>
@@ -74,10 +80,12 @@
 				<% } %>
 			<% }) %>
 		</div>
+		</div>
 		<br>
 		<input id="learning-submit-button" type="submit" value="Submit Answers">
 
 	</form>
+
 	<script src="/javascript/learning.js"></script>
 </body>
 </html>
