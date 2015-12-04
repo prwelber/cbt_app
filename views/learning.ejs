@@ -36,8 +36,12 @@
 				<div class="past-answers">
 					<h4>Previous Entries</h4>
 						<% rows.forEach(function (row) { %>
-							<p>On <%= row.timestamp %> you wrote:<br><%= row.answer1 %></p>
-						<% }) %>
+						<% if (row.answer1 === '') { %>
+								<p>nothin</p>
+						<% } else { %>
+								<p><%= row.timestamp %>: <%= row.answer1 %></p>
+						<% } %>
+					<% }) %>
 				</div>
 		</div>
 
@@ -49,7 +53,11 @@
 			<div class="past-answers">
 				<h4>Previous Entries</h4>
 					<% rows.forEach(function (row) { %>
-						<p><%= row.timestamp %>: <%= row.answer2 %></p>
+						<% if (row.answer2 === '') { %>
+								<p></p>
+						<% } else { %>
+								<p><%= row.timestamp %>: <%= row.answer2 %></p>
+						<% } %>
 					<% }) %>
 			</div>
 		</div>
@@ -62,8 +70,12 @@
 			<div class="past-answers">
 				<h4>Previous Entries</h4>
 				<% rows.forEach(function (row) { %>
-					<p><%= row.timestamp %>: <%= row.answer3 %></p>
-				<% }) %>
+						<% if (row.answer3 === '') { %>
+								<p></p>
+						<% } else { %>
+								<p><%= row.timestamp %>: <%= row.answer3 %></p>
+						<% } %>
+					<% }) %>
 			</div>
 		</div>
 

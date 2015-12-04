@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Past Answers</title>
+</head>
+<body>
+  <header><a href="/cbt">Home</a> | <a href="/users/<%= username %>/">User Dashboard</a> | <a href="/logout">Logout</a>
+  </header>
+
+  <h1>Your past responses</h1>
+
+  <% for (var i = 0; i < 1; i++) { %>
+    <h3><%= data[i].question1 %> </h3>
+    <% for (var j = 0; j < data.length; j++) { %>
+        <%= data[j].answer1 %> <br><br>
+    <% }} %>
+
+    <br><br>
+
+    <% for (var i = 0; i < 1; i++) { %>
+      <h3><%= data[i].question2 %> </h3>
+      <% for (var j = 0; j < data.length; j++) { %>
+          <%= data[j].answer2 %> <br><br>
+    <% }} %>
+
+    <br><br>
+
+    <% for (var i = 0; i < 1; i++) { %>
+      <h3><%= data[i].question3 %> </h3>
+      <% for (var j = 0; j < data.length; j++) { %>
+          <%= data[j].answer3 %> <br><br>
+    <% }} %>
+  
+</body>
+</html>

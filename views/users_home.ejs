@@ -14,6 +14,21 @@
     <a href="/users/<%= username %>/learning/show">Past Answers</a> | 
     <a href="/logout">Logout</a>
   </header>
+  <div class="past-answers">
+    <form action="/users/<%= username %>/past" method="POST">
+      <p>View your past entries.</p>
+      <select name="values" id="dropdown">
+        <option value="learning">Love of Learning</option>
+        <option value="humility">Humility</option>
+        <option value="openness">Openness</option>
+        <option value="tolerance">Tolerance</option>
+        <option value="generosity">Generosity</option>
+        <option value="autonomy">Autonomy</option>
+        <option value="honesty">Honesty</option>
+      </select>
+      <input type="submit">
+    </form>
+  </div>
   <div class="container">
     <h1>Welcome, <%= name %>!</h1>
     <h3>Below are the seven behavioral traits that we have chosen to focus on. <br>Pick one to start answering questions and building your history.
