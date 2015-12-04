@@ -200,13 +200,6 @@ app.get('/users/:id', requireLogin, function (req, res) {
     })
 });
 
-app.get('/users/:id/past_answers', requireLogin, function (req, res) {
-  res.render('past_answers', {
-    data: "hi",
-    username: req.params.id
-  });
-});
-
 app.post('/users/:id/past', function (req, res) {
   db.all("SELECT * FROM " +req.body.values+ " WHERE username = ?", req.params.id, function (err, data) {
     if (err) {
