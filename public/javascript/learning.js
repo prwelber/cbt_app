@@ -1,50 +1,55 @@
 $(document).ready(function () {
-  console.log('DOM ready');
-  /*
-  var username = $("#username").text();
-  var submitButton = document.getElementById("learning-submit-button");
+  console.log('learning.js linked');
 
-  submitButton.addEventListener('click', function (event) {
-  	event.preventDefault();
-  	console.log('clicked');
-    $(".message-box").empty();
-  	
-  	var answer1 = "Question: " + $("#question-1").text() + "Answer: " + $("#question-1-textarea").val(),
-  			answer2 = "\nQuestion: " + $("#question-2").text() + "Answer: " + $("#question-2-textarea").val(),
-  			answer3 = "\nQuestion: " + $("#question-3").text() + "Answer: " + $("#question-3-textarea").val();
+//post model constructor. each model instance will have these methods and data
+//available to it
 
-  	var answer1HTML = "<p>Question: "+$("#question-1").text() + "<br><p>Answer: " + $("#question-1-textarea").val(),
-  			answer2HTML = "<p>Question: "+$("#question-2").text() + "<br><p>Answer: " + $("#question-2-textarea").val(),
-  			answer3HTML = "<p>Question: "+$("#question-3").text() + "<br><p>Answer: " + $("#question-3-textarea").val();
+var Answer = Backbone.Model.extend({
+  urlRoot: "/users/:id/learning",
+
+  sayBye: function () {
+    console.log('this is the model talking, say bye has been initiated');
+    this.destroy();
+  }
+});
+
+var AnswerCollection = Backbone.Collection.extend({
+
+  model: Answer,
+
+  url: "/users/:id/learning"
+});
 
 
-  	data = {
-  		username: username,
-  		user_id: 1,
-  		answer1: answer1,
-  		answer2: answer2,
-  		answer3: answer3
-  	};
-  	
-  	$.ajax({
-  		type: "post",
-  		url: '/users/'+username+'/learning/create',
-  		data: data,
-  		success: function (stuff) {
-  			//console.log(stuff);
-  			$(".answer-one").append(answer1HTML);
-  			$(".answer-two").append(answer2HTML);
-  			$(".answer-three").append(answer3HTML);
+var AnswerCollectionView = Backbone.View.extend({
+  initialize: function () {
+    this.listenTo(this.collection, "add", this.addPost);
+  },
 
-  		},
-  		error: function (err) {
-  			console.log(err);
-  		}
-  	})
-  	$(".message-box").append("<h3>Entries Submitted!</h3>")
+  addPost: function (answerFromCollection) {
+    console.log('the collection i am observing added an aswer');
+    new AnswerView({answer: answerFromCollection}).render();
+  }
+});
 
-  })
-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 });
 

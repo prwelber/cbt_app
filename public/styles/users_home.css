@@ -10,6 +10,7 @@ h1 {
   font-family: 'Oswald', sans-serif;
   letter-spacing: 3px;
   font-size: 35px;
+  margin-top: 5%;
 }
 
 h3 {
@@ -48,8 +49,9 @@ a:visited, a:hover, a:active, a:link {
 
 
 header {
-  position: relative;
-  right: 37%;
+  position: absolute;
+  top: 1%;
+  left: 1%;
 }
 
 
