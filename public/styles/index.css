@@ -43,7 +43,7 @@ img {
 }
 
 
-/*MODAL STYLING*/
+/*LOGIN MODAL STYLING*/
 #login-modal {
   position: fixed;
   top: 0;
@@ -73,18 +73,88 @@ img {
   width: 100%;
   top: 50px;
   background-color: white;
-  /*border-top: 2px solid rebeccapurple;*/
+  border-top: 1px solid lightgray;
 }
 
 #login-form {
   width: 100%;
+  margin-top: 3%;
 }
 
 #modal-h3 {
   display: inline-block;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
 }
 
 #close-login-modal {
+  float: right;
+  font-size: 20px;
+}
+
+input[type=text], input[type=password] {
+  border: 1px solid #999;
+  font-family : 'Lato', sans-serif;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+input {
+  padding-left: 5px;
+  font-family : 'Lato', sans-serif;
+  font-size   : 100%;
+}
+
+input[type=submit] {
+  font-family : 'Lato', sans-serif;
+}
+
+/*SIGN UP MODAL STYLING*/
+
+#signup-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+#signup-modal-content {
+  position: relative;
+  margin: 0 auto;
+  background-color: white;
+  top: 40%;
+  width: 30%;
+}
+
+#signup-modal-header {
+  position: absolute;
+  background-color: white;
+  width: 100%;
+}
+
+.modal-body {
+  position: absolute;
+  width: 100%;
+  top: 50px;
+  background-color: white;
+  border-top: 1px solid lightgray;
+}
+
+#sign-up-form {
+  width: 100%;
+  margin-top: 3%;
+}
+
+#signup-modal-h3 {
+  display: inline-block;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+}
+
+#close-signup-modal {
   float: right;
   font-size: 20px;
 }
@@ -105,6 +175,24 @@ input {
 input[type=submit] {
   font-family : 'Lato', sans-serif;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

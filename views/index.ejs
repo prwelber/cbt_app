@@ -32,12 +32,11 @@
     Have fun!
       </article>
     </section>
-
     <h3>
         <button id="signup-button">Sign Up</button><button id="login-button">Log in</button>
     </h3>
-
     <img src="https://treegirlblog.files.wordpress.com/2014/06/thinking-man-stock_000005908297medium11.jpg">
+  </div>
 
     <!-- LOGIN MODAL -->
     <div id="login-modal">
@@ -54,10 +53,30 @@
               </form>
             </div>
         </div>
-        
+    </div>
+    <!-- SIGN UP MODAL -->
+    <div id="signup-modal">
+        <div id="signup-modal-content">
+            <div id="signup-modal-header">
+                <h3 id="signup-modal-h3">Sign Up</h3>
+                <button id="close-signup-modal">X</button>
+            </div>
+            <div class="modal-body">
+            <form id="sign-up-form" action="/users/create" method="post">
+                <input type="text" name="username" placeholder="username"><br>
+                <input type="password" name="password" placeholder="password"><br>
+                <input type="text" name="first_name" placeholder="First Name"><br>
+                <input type="text" name="last_name" placeholder="Last Name"><br>
+                <input type="text" name="email" placeholder="email"><br>
+                <input id="index-submit" type="submit"><br><br>
+              </form>
+            </div>
+        </div>
     </div>
 
- </div>
+
+
+
 
 
 

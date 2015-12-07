@@ -7,16 +7,37 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.2/backbone-min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Oswald|Raleway|Lato' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/styles/learning.css">
 
 </head>
 <body>
 
 	<header>
-		<data id="username" style="display: none;"><%= username %></data>
-		<a href="/cbt">Home</a> | <a href="/users/<%= username %>/">User Dashboard</a> | 
-		<a href="/users/<%= username %>/learning/show">Past Answers</a> | 
-		<a href="/logout">Logout</a>
+		<header>
+    <data id="username" style="display: none;"><%= username %></data>
+    <ul id="header-links">
+      <li><a href="/index">Home</a></li>
+      <li><a href="/users/<%= username %>/">Dashboard</a></li>
+      <li><a href="/logout">Logout</a></li>
+      <ul>
+        <li id="form-li">
+          <form action="/users/<%= username %>/past" method="POST">
+            <select name="values" id="dropdown" value="Past Entries">
+              <option selected disabled>View Past Entries</option>
+              <option value="learning">Love of Learning</option>
+              <option value="humility">Humility</option>
+              <option value="openness">Openness</option>
+              <option value="tolerance">Tolerance</option>
+              <option value="generosity">Generosity</option>
+              <option value="autonomy">Autonomy</option>
+              <option value="honesty">Honesty</option>
+            </select>
+            <button type="submit"><i class="fa fa-history fa-1x"></i></button>
+          </form>
+        </li>
+      </ul>
+    </ul>
 	</header>
 
 	<section>

@@ -19,7 +19,29 @@ $(document).ready(function() {
 		})
 	};
 
+var signUpModal = function signUpModal () {
+	var signUpModal = $("#signup-modal"),
+			signUpButton = $("#signup-button"),
+			closeSignUpModal = $("#close-signup-modal");
+
+	signUpButton.on('click', function (event) {
+		console.log('signup modal should open');
+		signUpModal.fadeIn("slow");
+		signUpModal.css("display", "inline");
+	});
+
+	closeSignUpModal.on('click', function (event) {
+		signUpModal.css("display", "none");
+	});
+};
 
 
+//call functions
+signUpModal();
 loginModal();
+
+
+
 });
+
+

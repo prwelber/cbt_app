@@ -77,20 +77,12 @@ app.get('/', function (req, res) {
   res.render('landing');
 })
 
-app.get('/cbt', function (req, res){
+app.get('/index', function (req, res){
   console.log("req.cookies.name from GET /cbt", req.cookies.name);
   console.log("req.session.user from GET /cbt", req.session.user);
   res.cookie("name", "Phil");
   res.render('index');
 });
-
-app.get('/signup', function (req, res) {
-  res.render('signup');
-});
-
-app.get('/login', function (req, res) {
-  res.render('login');
-})
 
 app.post('/users/create', function (req, res){
   console.log("req.body:", req.body);
