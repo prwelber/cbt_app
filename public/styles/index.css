@@ -2,18 +2,6 @@ body {
   text-align: center;
 }
 
-header {
-  width: 40%;
-  border: 2px solid mediumaquamarine;
-  margin: 0 auto;
-}
-
-h1 {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 400;
-  font-size: 50px;
-}
-
 #index-overview {
   margin: 0 auto;
   margin-top: 8%;
@@ -23,24 +11,6 @@ h1 {
   font-size: 20px;
   line-height: 1.7;
 }
-
-img { 
-  height: 700px;
-  width: 550px;
-  z-index: -1;
-  opacity: .5;
-  position: relative;
-  right: 25%;
-  bottom: 60px;
-}
-
-/*#signup-button, #login-button {
-  height: 50px;
-  width: 100px;
-  background-color: mediumaquamarine;
-  font-family : 'Lato', sans-serif;
-  font-size: 18px;
-}*/
 
 
 /*LOGIN MODAL STYLING*/
