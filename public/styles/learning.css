@@ -71,5 +71,19 @@ p {
 	font-size: 14px;
 }
 
+.question:nth-child(1n+3) {
+	display: none;
+}
+
+.next-question {
+	border: 2px solid black;
+	width: 75px;
+	margin: 0 auto;
+}
+
+
+
+
+
 
 

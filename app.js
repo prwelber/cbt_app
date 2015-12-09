@@ -70,7 +70,7 @@ app.use(function (req, res, next) {
 
 function requireLogin (req, res, next) {
   if (!req.session.user) {
-    res.redirect('/cbt');
+    res.redirect('/index');
   } else {
     console.log('req.session.user found, moving forward');
     next();
@@ -165,7 +165,7 @@ app.post('/users/login', function (req, res) {
     } else {
       console.log(data)
       console.log('password not correct');
-      res.redirect('/cbt');
+      res.redirect('/index');
     }
   })
 
@@ -194,7 +194,7 @@ app.get('/users/:id', requireLogin, function (req, res) {
       if (!user) {
         console.log('no user found sending back to index');
         req.session.destroy();
-        res.redirect('/cbt');
+        res.redirect('/index');
       } else {
         console.log('user:', user);
         res.render('users_home', {

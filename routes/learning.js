@@ -11,7 +11,7 @@ var db = new sqlite3.Database('tool.db');
 function requireLogin (req, res, next) {
   if (!req.user) {
   	console.log('no req.user, redirecting to home')
-    res.redirect('/cbt');
+    res.redirect('/index');
   } else {
     next();
   }
@@ -26,7 +26,7 @@ client.on('connect', function() {
 
 
 // define learning route
-router.get('/users/:id/learning', requireLogin, function (req, res){
+router.get('/users/:id/learning', /*requireLogin,*/ function (req, res){
   db.all("SELECT * FROM learning WHERE username = ?",req.params.id, function (err, rows) {
   	if (err) {
   		console.log(err)
