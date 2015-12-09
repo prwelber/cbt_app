@@ -1,0 +1,19 @@
+$fontColor: green;
+// FONTS
+$raleway: 'Raleway', sans-serif;
+$oswald: 'Oswald', sans-serif;
+$lato: 'Lato', sans-serif;
+
+$primaryColor: mediumaquamarine;
+
+h1 {
+	color: $fontColor;
+}
+
+#signup-button, #login-button {
+	height: 3em;
+	width: 6em;
+	background-color: $primaryColor;
+	font-family: $lato;
+	font-size: 18px;
+}

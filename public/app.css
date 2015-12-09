@@ -1,0 +1,9 @@
+h1 {
+  color: green; }
+
+#signup-button, #login-button {
+  height: 3em;
+  width: 6em;
+  background-color: mediumaquamarine;
+  font-family: "Lato", sans-serif;
+  font-size: 18px; }

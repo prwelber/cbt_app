@@ -7,6 +7,8 @@ var sqlite3 = require('sqlite3').verbose();
 var _ = require('underscore');
 var db = new sqlite3.Database('tool.db');
 var session = require('client-sessions');
+var sassMiddleware = require('node-sass-middleware');
+var path = require('path');
 
 //redis
 var redis = require('redis');
@@ -24,7 +26,19 @@ var methodOverride = require('method-override');
 app.use(cookieParser());
 app.use(urlencodedBodyParser);
 app.use(methodOverride('_method'));
-app.use(express.static('public'));
+//app.use(express.static('public'));
+
+// adding the sass middleware
+app.use(
+   sassMiddleware({
+       src: __dirname + '/sass', 
+       dest: __dirname + '/public',
+       debug: true,    
+   })
+);   
+
+// The static middleware must come after the sass middleware
+app.use(express.static( path.join( __dirname, 'public' ) ) );
 
 app.use(session({
   path: '/',
