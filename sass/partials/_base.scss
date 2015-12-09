@@ -6,9 +6,6 @@ $lato: 'Lato', sans-serif;
 
 $primaryColor: mediumaquamarine;
 
-h1 {
-	color: $fontColor;
-}
 
 #signup-button, #login-button {
 	height: 3em;
@@ -17,3 +14,65 @@ h1 {
 	font-family: $lato;
 	font-size: 18px;
 }
+
+header {
+  position: absolute;
+  width: 100%;
+  top: 0px;  
+  font-family: $lato;
+  color: black;
+  background-color: rgba(102,205,170, .4);
+  height: 45px;
+	ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+		li {
+  		float: left;
+		}
+		li a {
+	    display: block;
+	    color: black;
+	    text-align: center;
+	    padding: 14px 16px;
+	    text-decoration: none;
+		}
+		li a:hover {
+	    background-color: rgba(102,205,170, .9);
+		}
+	}
+	#form-li {
+	  float: right;
+	  display: block;
+	  color: black;
+	  text-align: center;
+	  padding: 10px 16px;
+	  text-decoration: none;
+	}
+	#dropdown {
+  	font-size: 14px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -8,7 +8,7 @@ body {
 	max-width: 1382px;
 }
 /*header styles*/
-header {
+/*header {
   position: absolute;
   width: 100%;
   top: 0px;  
@@ -53,7 +53,7 @@ li a:hover {
 
 #dropdown {
   font-size: 14px;
-}
+}*/
 /*end header styles*/
 
 h1 {

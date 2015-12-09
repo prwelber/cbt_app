@@ -2,7 +2,6 @@ var express = require("express");
 var app = express();
 var fs = require("fs");
 var ejs = require("ejs");
-var request = require('request');
 var sqlite3 = require('sqlite3').verbose();
 var _ = require('underscore');
 var db = new sqlite3.Database('tool.db');
