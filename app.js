@@ -118,7 +118,7 @@ app.post('/users/create', function (req, res){
             'email': req.body.email,
             'created': Date()
           });
-
+          res.redirect('/users/'+req.body.username);
         }
       });
     }

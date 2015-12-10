@@ -54,16 +54,11 @@ form {
 	text-align: left;
 }
 
-input[type=submit] {
-	background-color: mediumaquamarine;
-	border-radius: 5px;
-	border: 1px solid mediumaquamarine;
-	font-size: 14px;
-}
 
 h4 {
 	font-family: 'Raleway', sans-serif;
 	font-weight: 400;
+  margin-left: 10%;
 }
 
 p {
@@ -73,12 +68,6 @@ p {
 
 .question:nth-child(1n+3) {
 	display: none;
-}
-
-.next-question {
-	border: 2px solid black;
-	width: 75px;
-	margin: 0 auto;
 }
 
 
