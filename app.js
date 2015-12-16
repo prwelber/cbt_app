@@ -83,6 +83,9 @@ app.set('view engine', 'ejs');
 
 //routes
 app.use('/', require('./routes/learning.js'));
+app.use('/', require('./routes/humility.js'));
+app.use('/', require('./routes/openness.js'));
+
 
 
 

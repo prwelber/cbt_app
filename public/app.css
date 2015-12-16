@@ -25,6 +25,20 @@ h1 {
   font-size: 16px;
   font-family: "Lato", sans-serif; }
 
+.phil-card {
+  width: 275px;
+  height: 240px;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 1% 5px 1% 5px;
+  box-shadow: 2px 2px grey; }
+
+.phil-card-content {
+  padding-top: 10px;
+  font-family: "Lato", sans-serif;
+  font-size: 20px; }
+
 #index-img {
   height: 700px;
   width: 550px;
@@ -53,7 +67,7 @@ header {
       display: block;
       color: black;
       text-align: center;
-      padding: 14px 16px;
+      padding: 13px 16px;
       text-decoration: none; }
     header ul li a:hover {
       background-color: rgba(102, 205, 170, 0.9); }

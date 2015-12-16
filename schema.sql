@@ -36,16 +36,13 @@ id Integer Primary KEY AUTOINCREMENT,
 username varchar,
 timestamp DATE DEFAULT (datetime('now','localtime')),
 user_id integer,
-answer text,
+question1 text,
 answer1 text,
+question2 text,
 answer2 text,
+question3 text,
 answer3 text,
-answer4 text,
-answer5 text,
-answer6 text,
-answer7 text,
-answer8 text,
-answer9 text
+random text
 );
 
 CREATE TABLE openness(
@@ -53,16 +50,13 @@ id Integer Primary KEY AUTOINCREMENT,
 username varchar,
 timestamp DATE DEFAULT (datetime('now','localtime')),
 user_id integer,
-answer text,
+question1 text,
 answer1 text,
+question2 text,
 answer2 text,
+question3 text,
 answer3 text,
-answer4 text,
-answer5 text,
-answer6 text,
-answer7 text,
-answer8 text,
-answer9 text
+random text
 );
 
 CREATE TABLE generosity(
@@ -70,16 +64,13 @@ id Integer Primary KEY AUTOINCREMENT,
 username varchar,
 timestamp DATE DEFAULT (datetime('now','localtime')),
 user_id integer,
-answer text,
+question1 text,
 answer1 text,
+question2 text,
 answer2 text,
+question3 text,
 answer3 text,
-answer4 text,
-answer5 text,
-answer6 text,
-answer7 text,
-answer8 text,
-answer9 text
+random text
 );
 
 CREATE TABLE autonomy(

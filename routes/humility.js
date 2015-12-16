@@ -10,7 +10,7 @@ var db = new sqlite3.Database('tool.db');
 
 function requireLogin (req, res, next) {
   if (!req.user) {
-  	console.log('no req.user, redirecting to home')
+    console.log('no req.user, redirecting to home')
     res.redirect('/index');
   } else {
     next();
@@ -24,28 +24,25 @@ client.on('connect', function() {
 });
 
 
-
-// define learning route
-router.get('/users/:id/learning', /*requireLogin,*/ function (req, res){
-  db.all("SELECT * FROM learning WHERE username = ?",req.params.id, function (err, rows) {
-  	if (err) {
-  		console.log(err)
-  	} else {
-  	console.log(rows);
-  	client.hgetall(req.params.id, function (err, data) {
-  		res.render('learning', {
-  			name:data.first_name,
-  			username: data.username,
-  			rows: rows
-  		})
-  	})
-  	}
+// define humility route
+router.get('/users/:id/humility', /*requireLogin,*/ function (req, res){
+  db.all("SELECT * FROM humility WHERE username = ?",req.params.id, function (err, rows) {
+    if (err) {
+      console.log(err)
+    } else {
+    console.log(rows);
+    client.hgetall(req.params.id, function (err, data) {
+      res.render('humility', {
+        name:data.first_name,
+        username: data.username,
+        rows: rows
+      });
+    });
+    }
   })
 });
 
-router.post('/users/:id/learning/create', function (req, res){
-  console.log('learning post route hit');
-
+router.post('/users/:id/humility/create', function (req, res){
   db.run("INSERT INTO learning (username, user_id, question1, answer1, question2, answer2, question3, answer3, random) VALUES (?,?,?,?,?,?,?,?,?);", req.body.username, 1, req.body.question1, req.body.answer1, req.body.question2, req.body.answer2, req.body.question3, req.body.answer3, req.body.random_thought, function (err) {
     if (err) {
       console.log(err);
@@ -56,28 +53,6 @@ router.post('/users/:id/learning/create', function (req, res){
     }
   });
 });
-
-router.get('/users/:id/learning/show', requireLogin, function (req, res) {
-  console.log('learning show route hit');
-  db.all("SELECT * FROM learning WHERE username = ?", req.params.id, function (err, rows) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render('learning_show', {
-        rows: rows,
-        username: req.params.id
-      });
-    }
-  });
-});
-
-
-
-
-
-
-
-
 
 
 
