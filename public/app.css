@@ -37,20 +37,44 @@ h1 {
   display: inline-block;
   margin: 1% 5px 1% 5px;
   box-shadow: 2px 2px grey; }
+  .phil-card a:visited, .phil-card a:hover, .phil-card a:active, .phil-card a:link {
+    text-decoration: none; }
 
 .phil-card-content {
   padding-top: 10px;
   font-family: "Lato", sans-serif;
   font-size: 20px; }
 
+#users-home-h3 {
+  font-family: "Lato", sans-serif;
+  letter-spacing: 1.5px;
+  font-size: 20px;
+  line-height: 25px;
+  margin-bottom: 1%;
+  line-height: 30px; }
+
+#index-overview {
+  margin: 0 auto;
+  margin-top: 8%;
+  width: 82%;
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 2px;
+  font-size: 20px;
+  line-height: 1.7;
+  font-weight: 600; }
+
 #index-img {
   height: 700px;
   width: 550px;
   z-index: -1;
-  opacity: .5;
-  position: relative;
-  right: 25%;
-  bottom: 60px; }
+  opacity: .175;
+  position: absolute;
+  top: 0em;
+  left: 5em; }
+
+.user-home-img {
+  height: 180px;
+  width: 275px; }
 
 header {
   position: absolute;

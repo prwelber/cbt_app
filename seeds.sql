@@ -1,0 +1,1 @@
+INSERT INTO users values(1, 'shmee', 'password', 'cooper', 'welber', 'dog@bark.com', 'Date');
