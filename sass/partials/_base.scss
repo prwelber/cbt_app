@@ -91,6 +91,50 @@ h1 {
   font-weight: 600;
 }
 
+section article {
+  font-family: $raleway;
+  letter-spacing: 2px;
+  font-size: 20px;
+  line-height: 1.7;
+  margin: 0 5%;
+}
+
+hr {
+  margin: 0 auto;
+  margin-top: 2%;
+  color: lightgray;
+  width: 86%;
+}
+
+h3 {
+  font-family: $lato;
+  letter-spacing: 1.5px;
+  font-size: 20px;
+  line-height: 1.5;
+  padding: 0 20%;
+}
+
+.past-answers {
+  padding-left: 3%;
+  padding-right: 3%;
+  text-align: left;
+}
+
+h4 {
+  font-family: $raleway;
+  font-weight: 400;
+  margin-left: 10%;
+}
+
+p {
+  font-family: $lato;
+  font-size: 14px;
+}
+
+.question:nth-child(1n+3) {
+  display: none;
+}
+
 
 
 
