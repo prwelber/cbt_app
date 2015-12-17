@@ -13,11 +13,12 @@ header {
   position: absolute;
   width: 100%;
   top: 0px;  
-  font-family: $lato;
   color: black;
   background-color: rgba(102,205,170, .4);
   height: 45px;
 	ul {
+		font-family: $lato;
+		text-transform: uppercase;
     list-style-type: none;
     margin: 0;
     padding: 0;

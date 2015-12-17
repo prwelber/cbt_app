@@ -1,0 +1,31 @@
+/* Bubble Bottom */
+.hvr-bubble-bottom {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+.hvr-bubble-bottom:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  border-style: solid;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.2s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  left: calc(50% - 10px);
+  bottom: 0;
+  border-width: 10px 10px 0 10px;
+  border-color: #262626 transparent transparent transparent;
+}
+.hvr-bubble-bottom:hover:before, .hvr-bubble-bottom:focus:before, .hvr-bubble-bottom:active:before {
+  -webkit-transform: translateY(10px);
+  transform: translateY(10px);
+}

@@ -36,25 +36,29 @@ h1 {
   width: 15%;
   height: 50px;
   border-radius: 10px;
+  margin-top: 50px;
 }
 
 .next-question {
-  border: 2px solid $black;
+  border: none;
   padding: 5px;
-  width: 75px;
+  padding-top: 10px;
+  width: 125px;
+  height: 25px;
   margin: 0 auto;
-  font-size: 16px;
+  font-size: 14px;
   font-family: $lato;
+  color: white;
+  background-color: $black;
+  vertical-align: middle;
 }
 
 .phil-card {
   width: 275px;
   height: 240px;
-  border: 2px solid lightgray;
-  border-radius: 5px;
+  border: 1px solid $black;
   display: inline-block;
   margin: 1% 5px 1% 5px;
-  box-shadow: 2px 2px grey;
   a:visited, a:hover, a:active, a:link {
       text-decoration: none;
     }

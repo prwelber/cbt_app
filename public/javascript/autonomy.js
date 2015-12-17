@@ -8,7 +8,7 @@ $(document).ready(function () {
     nextButton.on('click', function (event) {
       if ($(event.target).parent().siblings()[nextQuestionCounter].style.display === "") {
          $(event.target).parent().siblings()[nextQuestionCounter].style.display = "inline";
-        $("body").animate({"scrollTop": window.scrollY+400}, 1250);
+        $("body").animate({"scrollTop": window.scrollY+250}, 1250);
         $(".next-question").eq(nextQuestionCounter - 1).hide();
         nextQuestionCounter += 1;
       }

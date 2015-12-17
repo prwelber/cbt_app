@@ -9,8 +9,9 @@
   </header>
 
   <h1>Your past responses</h1>
-
-
+  <% if (data === undefined) { %> 
+    <h3>You haven't submitted answers yet.</h3> 
+  <%} else {%>
     <h3><%= data[0].question1 %> </h3>
     <% for (var j = 0; j < data.length; j++) { %>
         <%= data[j].answer1 %> <br><br>
@@ -30,6 +31,6 @@
       <% for (var j = 0; j < data.length; j++) { %>
           <%= data[j].answer3 %> <br><br>
     <% } %>
-  
+    <%}%>
 </body>
 </html>

@@ -24,7 +24,7 @@ client.on('connect', function() {
 });
 
 
-// define humility route
+// define generosity route
 router.get('/users/:id/generosity', /*requireLogin,*/ function (req, res){
   db.all("SELECT * FROM generosity WHERE username = ?",req.params.id, function (err, rows) {
     if (err) {
