@@ -87,7 +87,8 @@ app.use('/', require('./routes/humility.js'));
 app.use('/', require('./routes/openness.js'));
 app.use('/', require('./routes/tolerance.js'));
 app.use('/', require('./routes/generosity.js'));
-
+app.use('/', require('./routes/honesty.js'));
+app.use('/', require('./routes/autonomy.js'));
 
 
 

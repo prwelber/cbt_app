@@ -4,7 +4,7 @@ $oswald: 'Oswald', sans-serif;
 $lato: 'Lato', sans-serif;
 
 $primaryColor: mediumaquamarine;
-
+$black: #262626;
 
 
 h1 {
@@ -15,11 +15,19 @@ h1 {
 }
 
 #signup-button, #login-button {
-	height: 3em;
-	width: 6em;
+	height: 2em;
+	width: 10em;
 	background-color: $primaryColor;
 	font-family: $lato;
-	font-size: 18px;
+	font-size: 20px;
+  border: none;
+  margin: 0px 10px 0px 10px;
+  opacity: .9;
+}
+
+#signup-button:hover, #login-button:hover {
+  background-color: $black;
+  color: $primaryColor;
 }
 
 #learning-submit-button {
@@ -31,7 +39,7 @@ h1 {
 }
 
 .next-question {
-  border: 2px solid black;
+  border: 2px solid $black;
   padding: 5px;
   width: 75px;
   margin: 0 auto;
