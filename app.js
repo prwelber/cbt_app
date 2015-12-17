@@ -1,26 +1,26 @@
-var express = require("express");
-var app = express();
-var fs = require("fs");
-var ejs = require("ejs");
-var sqlite3 = require('sqlite3').verbose();
-var _ = require('underscore');
-var db = new sqlite3.Database('tool.db');
-var session = require('client-sessions');
-var sassMiddleware = require('node-sass-middleware');
-var path = require('path');
+var express        = require("express"),
+    app            = express(),
+    fs             = require("fs"),
+    ejs            = require("ejs"),
+    sqlite3        = require('sqlite3').verbose(),
+    _              = require('underscore'),
+    db             = new sqlite3.Database('tool.db'),
+    session        = require('client-sessions'),
+    sassMiddleware = require('node-sass-middleware'),
+    path           = require('path');
 
 //redis
-var redis = require('redis');
-var client = redis.createClient();
+var redis = require('redis'),
+    client = redis.createClient();
 client.on('connect', function() {
 });
 
 //middleware
-var session = require('express-session');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var urlencodedBodyParser = bodyParser.urlencoded({extended: true});
-var methodOverride = require('method-override');
+var session              = require('express-session'),
+    bodyParser           = require('body-parser'),
+    cookieParser         = require('cookie-parser'),
+    urlencodedBodyParser = bodyParser.urlencoded({extended: true}),
+    methodOverride       = require('method-override');
 
 app.use(cookieParser());
 app.use(urlencodedBodyParser);
@@ -85,6 +85,8 @@ app.set('view engine', 'ejs');
 app.use('/', require('./routes/learning.js'));
 app.use('/', require('./routes/humility.js'));
 app.use('/', require('./routes/openness.js'));
+app.use('/', require('./routes/tolerance.js'));
+app.use('/', require('./routes/generosity.js'));
 
 
 

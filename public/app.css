@@ -1,3 +1,7 @@
+html, body {
+  margin: 0px;
+  padding: 0px; }
+
 h1 {
   font-family: "Oswald", sans-serif;
   letter-spacing: 3px;
@@ -64,10 +68,14 @@ header {
     header ul li {
       float: left; }
     header ul li a {
+      height: 17px;
       display: block;
       color: black;
       text-align: center;
-      padding: 13px 16px;
+      padding-top: 13px;
+      padding-bottom: 15px;
+      padding-left: 16px;
+      padding-right: 16px;
       text-decoration: none; }
     header ul li a:hover {
       background-color: rgba(102, 205, 170, 0.9); }

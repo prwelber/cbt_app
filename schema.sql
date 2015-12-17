@@ -59,6 +59,20 @@ answer3 text,
 random text
 );
 
+CREATE TABLE tolerance(
+id Integer Primary KEY AUTOINCREMENT,
+username varchar,
+timestamp DATE DEFAULT (datetime('now','localtime')),
+user_id integer,
+question1 text,
+answer1 text,
+question2 text,
+answer2 text,
+question3 text,
+answer3 text,
+random text
+);
+
 CREATE TABLE generosity(
 id Integer Primary KEY AUTOINCREMENT,
 username varchar,

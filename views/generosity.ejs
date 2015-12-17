@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generosity</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.2/backbone-min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Oswald|Raleway|Lato' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/styles/learning.css">
+  <link rel="stylesheet" href="/app.css">
+
+</head>
+<body>
+
+  <header>
+    <header>
+    <data id="username" style="display: none;"><%= username %></data>
+    <ul id="header-links">
+      <li><a href="/index">Home</a></li>
+      <li><a href="/users/<%= username %>/">Dashboard</a></li>
+      <li><a href="/logout">Logout</a></li>
+      <ul>
+        <li id="form-li">
+          <form action="/users/<%= username %>/past" method="POST">
+            <select name="values" id="dropdown" value="Past Entries">
+              <option selected disabled>View Past Entries</option>
+              <option value="learning">Love of Learning</option>
+              <option value="humility">Humility</option>
+              <option value="openness">Openness</option>
+              <option value="tolerance">Tolerance</option>
+              <option value="generosity">Generosity</option>
+              <option value="autonomy">Autonomy</option>
+              <option value="honesty">Honesty</option>
+            </select>
+            <button type="submit"><i class="fa fa-history fa-1x"></i></button>
+          </form>
+        </li>
+      </ul>
+    </ul>
+  </header>
+
+  <section>
+    <h1>Generosity</h1>
+    <article>Usually relegated to the financial arena, here generosity also refers to the giving of one’s time and emotional energy, particularly to people who will never be able to repay us.</article>
+  </section>
+  <hr>
+  <form id="question-form" action="/users/<%= username %>/generosity/create" method="post">
+
+    <input type="hidden" name="username" value="<%= username %>">
+
+    <div class="question">
+      <h3 id="question-1">Name an instance/interaction in which I gave of myself knowing that I wouldn’t get anything back.
+      </h3>
+      <textarea form="question-form" id="question-1-textarea" name="answer1" cols="50" rows="6" placeholder=""></textarea>
+      <input type="hidden" name="question1" value="Name an instance/interaction in which I gave of myself knowing that I wouldn’t get anything back.">
+        <div class="past-answers">
+          <h4>Previous Entries</h4>
+            <% rows.forEach(function (row) { %>
+            <% if (row.answer1 === '') { %>
+                <p>nothin</p>
+            <% } else { %>
+                <p><%= row.timestamp %>: <%= row.answer1 %></p>
+            <% } %>
+          <% }) %>
+        </div>
+        <p class="next-question">next question</p>
+    </div>
+
+    <div class="question">
+      <h3 id="question-2">Name one person in my life to whom I “give” without expecting anything in return.
+      </h3>
+      <textarea form="question-form" id="question-2-textarea" name="answer2" cols="50" rows="6" placeholder=""></textarea>
+      <input type="hidden" name="question2" value="Name one person in my life to whom I “give” without expecting anything in return.">
+      <div class="past-answers">
+        <h4>Previous Entries</h4>
+          <% rows.forEach(function (row) { %>
+            <% if (row.answer2 === '') { %>
+                <p></p>
+            <% } else { %>
+                <p><%= row.timestamp %>: <%= row.answer2 %></p>
+            <% } %>
+          <% }) %>
+      </div>
+      <p class="next-question">next question</p>
+    </div>
+    
+    <div class="question">
+      <h3 id="question-3">Is there someone who serves this role for me? 
+      </h3>
+      <textarea form="question-form" id="question-3-textarea" name="answer3" cols="50" rows="6" placeholder=""></textarea>
+      <input type="hidden" name="question3" value="Is there someone who serves this role for me?">
+      <div class="past-answers">
+        <h4>Previous Entries</h4>
+        <% rows.forEach(function (row) { %>
+            <% if (row.answer3 === '') { %>
+                <p></p>
+            <% } else { %>
+                <p><%= row.timestamp %>: <%= row.answer3 %></p>
+            <% } %>
+          <% }) %>
+      </div>
+      <p class="next-question">next question</p>
+    </div>
+
+    <div class="question">
+      <h3>Do you have an additional thought about the behavior trait that was not addressed by one of the prompts?</h3>
+      <textarea name="random_thought" id="random-textarea" cols="80" rows="6" placeholder="The perfect place for a random thought!"></textarea>
+    <div class="past-answers" id="random-answer">
+      <h4>Previous Entries</h4>
+      <% rows.forEach(function (row) { %>
+        <% if (!row.random) { %>
+          <% console.log('nothing'); %>
+          <% } else { %>
+        <p><%= row.timestamp %>: <%= row.random %></p>
+        <% } %>
+      <% }) %>
+    </div>
+    </div>
+    <br>
+    <input id="learning-submit-button" type="submit" value="Submit Answers">
+
+  </form>
+
+  <script src="/javascript/generosity.js"></script>
+</body>
+</html>

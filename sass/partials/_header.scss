@@ -26,10 +26,14 @@ header {
   		float: left;
 		}
 		li a {
+			height: 17px;
 	    display: block;
 	    color: black;
 	    text-align: center;
-	    padding: 13px 16px;
+	    padding-top: 13px;
+	    padding-bottom: 15px;
+	    padding-left: 16px;
+	    padding-right: 16px;
 	    text-decoration: none;
 		}
 		li a:hover {

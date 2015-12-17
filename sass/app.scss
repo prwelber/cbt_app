@@ -5,6 +5,11 @@ $lato: 'Lato', sans-serif;
 
 $primaryColor: mediumaquamarine;
 
+html, body {
+	margin: 0px;
+	padding: 0px;
+}
+
 @import "partials/base";
 @import "partials/images";
 @import "partials/header";
