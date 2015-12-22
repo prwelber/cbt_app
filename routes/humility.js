@@ -34,7 +34,7 @@ router.get('/users/:id/humility', /*requireLogin,*/ function (req, res){
 });
 
 router.post('/users/:id/humility/create', function (req, res){
-  db.run("INSERT INTO learning (username, user_id, question1, answer1, question2, answer2, question3, answer3, random) VALUES (?,?,?,?,?,?,?,?,?);", req.body.username, 1, req.body.question1, req.body.answer1, req.body.question2, req.body.answer2, req.body.question3, req.body.answer3, req.body.random_thought, function (err) {
+  db.run("INSERT INTO humility (username, user_id, question1, answer1, question2, answer2, question3, answer3, random) VALUES (?,?,?,?,?,?,?,?,?);", req.body.username, 1, req.body.question1, req.body.answer1, req.body.question2, req.body.answer2, req.body.question3, req.body.answer3, req.body.random_thought, function (err) {
     if (err) {
       console.log(err);
     } else {
