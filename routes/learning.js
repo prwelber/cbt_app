@@ -17,13 +17,6 @@ function requireLogin (req, res, next) {
   }
 };
 
-//redis
-var redis = require('redis');
-var client = redis.createClient();
-client.on('connect', function() {
-});
-
-
 
 // define learning route
 router.get('/users/:id/learning', /*requireLogin,*/ function (req, res){
@@ -31,13 +24,10 @@ router.get('/users/:id/learning', /*requireLogin,*/ function (req, res){
   	if (err) {
   		console.log(err)
   	} else {
-  	client.hgetall(req.params.id, function (err, data) {
   		res.render('learning', {
-  			name:data.first_name,
-  			username: data.username,
+  			username: req.params.id,
   			rows: rows
   		})
-  	})
   	}
   })
 });

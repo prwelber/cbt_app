@@ -17,12 +17,6 @@ function requireLogin (req, res, next) {
   }
 };
 
-//redis
-var redis = require('redis');
-var client = redis.createClient();
-client.on('connect', function() {
-});
-
 
 // define humility route
 router.get('/users/:id/honesty', /*requireLogin,*/ function (req, res){
@@ -31,13 +25,10 @@ router.get('/users/:id/honesty', /*requireLogin,*/ function (req, res){
       console.log(err)
     } else {
     console.log(rows);
-    client.hgetall(req.params.id, function (err, data) {
       res.render('honesty', {
-        name:data.first_name,
-        username: data.username,
+        username: req.params.id,
         rows: rows
       });
-    });
     }
   })
 });

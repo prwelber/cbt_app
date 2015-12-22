@@ -74,6 +74,43 @@ h1 {
   line-height: 1.7;
   font-weight: 600; }
 
+section article {
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 2px;
+  font-size: 20px;
+  line-height: 1.7;
+  margin: 0 5%; }
+
+hr {
+  margin: 0 auto;
+  margin-top: 2%;
+  color: lightgray;
+  width: 86%; }
+
+h3 {
+  font-family: "Lato", sans-serif;
+  letter-spacing: 1.5px;
+  font-size: 20px;
+  line-height: 1.5;
+  padding: 0 20%; }
+
+.past-answers {
+  padding-left: 3%;
+  padding-right: 3%;
+  text-align: left; }
+
+h4 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  margin-left: 10%; }
+
+p {
+  font-family: "Lato", sans-serif;
+  font-size: 14px; }
+
+.question:nth-child(1n+3) {
+  display: none; }
+
 #index-img {
   height: 800px;
   width: 650px;
@@ -139,7 +176,7 @@ header {
     margin: 0 auto;
     background-color: white;
     top: 40%;
-    width: 30%; }
+    width: 33%; }
   #login-modal #login-modal-header {
     position: absolute;
     background-color: white;
